@@ -1,0 +1,13 @@
+Thumbs.db
+.DS_Store
+node_modules/
+
+# Original source photos (the site only uses the optimised copies in assets/img)
+/اطباق يومية/
+/سلطات/
+/مقبلات/
+/مناسف للطلب المسبق 4 اشخاص/
+/*.jpg
+/*.jpeg
+/*.png
+*.CR3

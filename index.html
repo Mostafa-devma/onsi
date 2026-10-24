@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ONSI — أُنسي · Home Kitchen</title>
+  <meta name="description" content="ONSI Kitchen — home-cooked daily meals made with uns (أُنس). Daily orders 10 AM – 5 PM, delivery available, monthly meal plan. Call 03 706 071." />
+  <meta name="theme-color" content="#14110d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Manrope:wght@400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__panel loader__panel--top"></div>
+    <div class="loader__panel loader__panel--bottom"></div>
+    <div class="loader__inner">
+      <div class="loader__ar">أُنسي</div>
+      <div class="loader__count"><span class="js-count">00</span>%</div>
+      <div class="loader__line"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ============ CURSOR + GRAIN ============ -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-cursor="Top">
+      <span class="nav__ar">أُنسي</span>
+      <span class="nav__en">ONSI</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#daily"><span class="nav__full">Daily Meals</span><span class="nav__short">Daily</span></a>
+      <a href="#ritual" class="nav__link--wide">How it works</a>
+      <a href="#plan"><span class="nav__full">Meal Plan</span><span class="nav__short">Plan</span></a>
+      <a href="#kitchen">Kitchen</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="nav__lang" type="button" data-lang-toggle lang="ar" aria-label="التبديل إلى العربية">عربي</button>
+      <a href="tel:+9613706071" class="nav__cta magnetic" data-cursor="Call">
+        <span class="dot"></span>
+        <span class="nav__cta-full">Order · 03 706 071</span>
+        <span class="nav__cta-short">Call</span>
+      </a>
+      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mnav" id="mnav" data-lenis-prevent>
+    <nav class="mnav__links" aria-label="Mobile">
+      <a href="#menu"><span class="n">01</span><span class="t">Menu</span><span class="a">القائمة</span></a>
+      <a href="#daily"><span class="n">02</span><span class="t">Daily Meals</span><span class="a">أطباق اليوم</span></a>
+      <a href="#ritual"><span class="n">03</span><span class="t">How it works</span><span class="a">كيف نعمل</span></a>
+      <a href="#plan"><span class="n">04</span><span class="t">Meal Plan</span><span class="a">الاشتراك</span></a>
+      <a href="#kitchen"><span class="n">05</span><span class="t">Kitchen</span><span class="a">المطبخ</span></a>
+    </nav>
+    <div class="mnav__foot">
+      <span class="mnav__hours">Daily orders · 10 AM – 5 PM</span>
+      <div class="mnav__actions">
+        <a class="btn btn--light" href="tel:+9613706071">Call 03 706 071</a>
+        <a class="btn btn--ghost" href="https://wa.me/9613706071" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__pin">
+        <div class="hero__bg" aria-hidden="true"><img src="assets/img/hero-bg-plate.jpg" alt="" /></div>
+        <div class="hero__meta hero__meta--l">
+          <span>Home Kitchen</span>
+          <span>Lebanon</span>
+        </div>
+        <div class="hero__meta hero__meta--r">
+          <span>Daily Orders</span>
+          <span>10 AM – 5 PM</span>
+        </div>
+
+        <h1 class="hero__title" aria-label="ONSI">
+          <span class="hero__word hero__word--l"><span class="ch">O</span><span class="ch">N</span></span>
+          <span class="hero__plate-wrap">
+            <span class="hero__plate">
+              <img src="assets/img/hero-main.jpg" alt="Saffron rice with grilled chicken, pomegranate seeds and cashews" />
+            </span>
+            <svg class="hero__ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="circ" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0" /></defs>
+              <text><textPath href="#circ">COOKED WITH UNS · أُنس · DELIVERED WARM · ORDER A DAY AHEAD · </textPath></text>
+            </svg>
+          </span>
+          <span class="hero__word hero__word--r"><span class="ch">S</span><span class="ch">I</span></span>
+        </h1>
+
+        <p class="hero__sub">
+          <span class="line"><span>Home-cooked lunch, made the slow way</span></span>
+          <span class="line"><span>and brought to your door — every working day.</span></span>
+        </p>
+
+        <div class="hero__scroll">
+          <span>Scroll</span>
+          <i></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MANIFESTO ============ -->
+    <section class="manifesto">
+      <div class="manifesto__def">
+        <span class="manifesto__ar">أُنْس</span>
+        <span class="manifesto__phon">/ʔuns/ &nbsp;·&nbsp; noun, Arabic</span>
+        <span class="manifesto__mean">the warmth of being among people you love.</span>
+      </div>
+      <p class="manifesto__text js-words">
+        We named our kitchen after a feeling. The table where nobody is in a hurry, the pot that was always big enough for one more. ONSI cooks that feeling every day — slowly, generously, honestly — and sends it to your door while it's still warm.
+      </p>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Dishes we cook">
+      <div class="marquee__track js-marquee">
+        <div class="marquee__row">
+          <span>Mansaf</span><i>✦</i><span class="it">Pesto Freek</span><i>✦</i><span>Kibbeh</span><i>✦</i><span class="it">Molokhia</span><i>✦</i><span>Chicken Kabsa</span><i>✦</i><span class="it">Hindbeh</span><i>✦</i><span class="ar">سلطات</span><i>✦</i>
+        </div>
+        <div class="marquee__row" aria-hidden="true">
+          <span>Mansaf</span><i>✦</i><span class="it">Pesto Freek</span><i>✦</i><span>Kibbeh</span><i>✦</i><span class="it">Molokhia</span><i>✦</i><span>Chicken Kabsa</span><i>✦</i><span class="it">Hindbeh</span><i>✦</i><span class="ar">سلطات</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MENU (BY CATEGORY) ============ -->
+    <section class="menu" id="menu">
+      <div class="menu__inner">
+        <header class="menu__head">
+          <div>
+            <span class="eyebrow">From ONSI's kitchen</span>
+            <h2 class="menu__title">Our <em>menu</em></h2>
+          </div>
+          <p class="menu__intro">
+            <span class="menu__intro-ar">قائمتنا</span>
+            Lebanese home cooking and house creations, made fresh every morning and sorted by category.
+          </p>
+        </header>
+
+        <ul class="menu__grid">
+          <li class="cat">
+            <a class="cat__card" href="#daily">
+              <span class="cat__img"><img src="assets/img/cat-main.jpg" alt="Saffron rice topped with grilled chicken, pomegranate seeds and cashews" loading="lazy" width="900" height="900" /></span>
+              <span class="cat__body">
+                <span class="cat__top"><span class="cat__no">01</span><span class="cat__ar">أطباق رئيسية</span></span>
+                <h3 class="cat__title">Main Dishes</h3>
+                <span class="cat__desc">Saffron rice with grilled chicken skewers, roast beef on silky mash. Hearty plates for every day.</span>
+                <span class="cat__cta">This week's dishes <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li class="cat">
+            <a class="cat__card" href="#mansaf">
+              <span class="cat__img">
+                <img src="assets/img/cat-mansaf.jpg" alt="Mansaf: tender lamb over spiced grains, topped with cashews and pistachios" loading="lazy" width="900" height="900" />
+                <span class="cat__badge">Serves 4 · Pre-order</span>
+              </span>
+              <span class="cat__body">
+                <span class="cat__top"><span class="cat__no">02</span><span class="cat__ar">مناسف للطلب المسبق</span></span>
+                <h3 class="cat__title">Mansaf for <em>Four</em></h3>
+                <span class="cat__desc">Seven festive trays for 4 people, from $32. Lamb, chicken, skewers or shrimp, on rice or freek.</span>
+                <span class="cat__cta">Trays &amp; prices <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li class="cat">
+            <a class="cat__card" href="#appetizers">
+              <span class="cat__img"><img src="assets/img/cat-appetizers.jpg" alt="Fresh tabbouleh in a kraft bowl, seen from above" loading="lazy" width="900" height="900" /></span>
+              <span class="cat__body">
+                <span class="cat__top"><span class="cat__no">03</span><span class="cat__ar">مقبلات</span></span>
+                <h3 class="cat__title">Appetizers</h3>
+                <span class="cat__desc">Ten mezze from $4: fattoush, hindbeh, muhammara, kibbeh, rakakat and more.</span>
+                <span class="cat__cta">Items &amp; prices <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li class="cat">
+            <a class="cat__card" href="#salads">
+              <span class="cat__img"><img src="assets/img/cat-salads-bowl.jpg" alt="Salad bowl with grilled beef strips, peppers, carrots and greens" loading="lazy" width="900" height="900" /></span>
+              <span class="cat__body">
+                <span class="cat__top"><span class="cat__no">04</span><span class="cat__ar">سلطات</span></span>
+                <h3 class="cat__title">Salads</h3>
+                <span class="cat__desc">Six big salads with grilled chicken, meat or shrimp, from $10.</span>
+                <span class="cat__cta">Items &amp; prices <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+          <li class="cat cat--special">
+            <a class="cat__card" href="https://wa.me/9613706071?text=Hi%20ONSI%2C%20I'd%20like%20to%20place%20a%20special%20order" target="_blank" rel="noopener">
+              <span class="cat__body">
+                <span class="cat__top"><span class="cat__no">05</span><span class="cat__ar">طلبات خاصة</span></span>
+                <h3 class="cat__title">Your <em>special</em> order</h3>
+                <span class="cat__desc">Gatherings, family lunches, Iftar tables. Tell us what you're craving and we'll cook it.</span>
+                <span class="cat__cta">Message us <i aria-hidden="true">→</i></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DAILY MEALS ============ -->
+    <section class="daily panel" id="daily" data-panel hidden>
+      <button class="panel__close" type="button" data-close-panel>Close <span aria-hidden="true">✕</span></button>
+      <div class="daily__inner">
+        <div class="daily__head">
+          <span class="eyebrow">Daily Meals · <span class="daily__head-ar">أطباق اليوم</span></span>
+          <h2 class="daily__title">A new table, <em>every day.</em></h2>
+          <p class="daily__sub">Four home-cooked dishes a day, Monday to Saturday. Pick your day and order one day ahead.</p>
+        </div>
+        <div class="js-daily"></div>
+        <p class="daily__note">Cooked fresh that morning · Delivery 10 AM – 5 PM · <span class="daily__note-special">ONSI Special</span> = a house creation</p>
+      </div>
+    </section>
+
+    <!-- ============ MANSAF FOR FOUR (PRE-ORDER) ============ -->
+    <section class="mansaf panel" id="mansaf" data-panel hidden>
+      <button class="panel__close" type="button" data-close-panel>Close <span aria-hidden="true">✕</span></button>
+      <div class="mansaf__inner">
+        <header class="mansaf__head">
+          <div>
+            <span class="eyebrow">Pre-order · Serves 4</span>
+            <h2 class="mansaf__title">Mansaf for <em>four.</em></h2>
+          </div>
+          <p class="mansaf__intro">
+            <span class="mansaf__intro-ar">مناسف للطلب المسبق · ٤ أشخاص</span>
+            Festive trays for the whole table, crowned with cashews and nuts. Kindly order one day ahead.
+          </p>
+        </header>
+
+        <ul class="mansaf__grid">
+          <li class="tray" data-cart-id="mansaf-rice-lamb" data-name="Rice Mansaf with Lamb" data-ar="منسف رز مع لحم غنم" data-price="40" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-lamb-lg.jpg" aria-label="View photo: Rice mansaf with tender lamb, cashews and pistachios"><img src="assets/img/mansaf-lamb.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Rice Mansaf with Lamb</h3><span class="tray__price"><small>$</small>40</span></div>
+              <span class="tray__ar">منسف رز مع لحم غنم</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-rice-chicken" data-name="Rice Mansaf with Chicken" data-ar="منسف رز مع دجاج" data-price="32" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-chicken-lg.jpg" aria-label="View photo: Rice mansaf with roasted chicken, cashews and barberries"><img src="assets/img/mansaf-chicken.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Rice Mansaf with Chicken</h3><span class="tray__price"><small>$</small>32</span></div>
+              <span class="tray__ar">منسف رز مع دجاج</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-rice-skewers" data-name="Rice Mansaf with Chicken Skewers" data-ar="منسف رز مع سياخ دجاج" data-price="40" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-skewers-lg.jpg" aria-label="View photo: Round tray of rice ringed with grilled chicken skewers and a centre of cashews"><img src="assets/img/mansaf-skewers.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Rice Mansaf with Chicken Skewers</h3><span class="tray__price"><small>$</small>40</span></div>
+              <span class="tray__ar">منسف رز مع سياخ دجاج</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-rice-shrimp" data-name="Rice Mansaf with Shrimp" data-ar="منسف رز مع قريدس" data-price="48" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-shrimp-lg.jpg" aria-label="View photo: Saffron rice mansaf topped with shrimp, nuts and herbs"><img src="assets/img/mansaf-shrimp.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Rice Mansaf with Shrimp</h3><span class="tray__price"><small>$</small>48</span></div>
+              <span class="tray__ar">منسف رز مع قريدس</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-freek-lamb" data-name="Freek Mansaf with Lamb" data-ar="منسف فريك مع اللحم" data-price="48" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-freek-lamb-lg.jpg" aria-label="View photo: Freek mansaf with lamb, cashews and pistachios"><img src="assets/img/mansaf-freek-lamb.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Freek Mansaf with Lamb</h3><span class="tray__price"><small>$</small>48</span></div>
+              <span class="tray__ar">منسف فريك مع اللحم</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-freek-chicken" data-name="Freek Mansaf with Chicken" data-ar="منسف فريك مع دجاج" data-price="45" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-freek-chicken-lg.jpg" aria-label="View photo: Freek mansaf tray with boneless shredded chicken, cashews and pistachios"><img src="assets/img/mansaf-freek-chicken.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Freek Mansaf with Chicken</h3><span class="tray__price"><small>$</small>45</span></div>
+              <span class="tray__ar">منسف فريك مع دجاج</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+          <li class="tray" data-cart-id="mansaf-pesto-freek-shrimp" data-name="Pesto Freek Mansaf with Shrimp" data-ar="منسف فريك بالبيستو والقريدس" data-price="48" data-note="Mansaf for 4">
+            <div class="tray__img"><button type="button" class="tray__zoom" data-full="assets/img/mansaf-pesto-shrimp-lg.jpg" aria-label="View photo: Pesto freek mansaf with grilled shrimp and cashews"><img src="assets/img/mansaf-pesto-shrimp.jpg" alt="" loading="lazy" width="640" height="640" /></button><span class="tray__serves">Serves 4</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>Pesto Freek Mansaf with Shrimp</h3><span class="tray__price"><small>$</small>48</span></div>
+              <span class="tray__ar">منسف فريك بالبيستو والقريدس</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ APPETIZERS & SALADS ============ -->
+    <section class="carte panel" id="carte" data-panel hidden>
+      <button class="panel__close" type="button" data-close-panel>Close <span aria-hidden="true">✕</span></button>
+      <div class="carte__inner">
+        <div class="carte__col" id="appetizers" data-col>
+          <header class="carte__head">
+            <span class="eyebrow">Mezze · <span class="carte__eyebrow-ar">مقبلات</span></span>
+            <h2 class="carte__title">Appetizers</h2>
+            <p class="carte__note">Made fresh every morning · from $4</p>
+          </header>
+          <ol class="daily__list js-carte" data-list="appetizers"></ol>
+        </div>
+        <div class="carte__col" id="salads" data-col>
+          <header class="carte__head">
+            <span class="eyebrow">Big size · <span class="carte__eyebrow-ar">سلطات</span></span>
+            <h2 class="carte__title"><em>Salads</em></h2>
+            <p class="carte__note">Each with 100g of grilled chicken, meat or shrimp</p>
+          </header>
+          <ol class="daily__list js-carte" data-list="salads"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RITUAL (CLOCK) ============ -->
+    <section class="ritual" id="ritual">
+      <div class="ritual__inner">
+        <div class="ritual__left">
+          <span class="eyebrow">How it works</span>
+          <h2 class="ritual__title">A day in the <em>life</em> of your lunch</h2>
+          <ol class="ritual__steps">
+            <li class="step is-active" data-h="15" data-label="Yesterday · 3:00 PM" tabindex="0">
+              <span class="step__time">The day before</span>
+              <h3>You order</h3>
+              <p>Call or message us on <strong>03 706 071</strong>. Kindly place your order one day ahead so we can shop fresh for you.</p>
+            </li>
+            <li class="step" data-h="34" data-label="Today · 10:00 AM" tabindex="0">
+              <span class="step__time">10:00 AM</span>
+              <h3>We cook</h3>
+              <p>The kitchen opens and the pots go on. Everything is made that morning, never reheated from yesterday.</p>
+            </li>
+            <li class="step" data-h="41" data-label="Today · 5:00 PM" tabindex="0">
+              <span class="step__time">Before 5:00 PM</span>
+              <h3>It arrives</h3>
+              <p>Delivery is available. Your meal reaches your door, packed with care and still carrying the warmth of the stove.</p>
+            </li>
+          </ol>
+        </div>
+        <div class="ritual__right">
+          <div class="clock">
+            <svg viewBox="0 0 400 400" aria-hidden="true">
+              <defs>
+                <radialGradient id="clockFace" cx="50%" cy="38%" r="70%">
+                  <stop offset="0%" stop-color="#fbf5e9" />
+                  <stop offset="100%" stop-color="#ebe0c8" />
+                </radialGradient>
+                <linearGradient id="clockArc" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#e8a33a" />
+                  <stop offset="100%" stop-color="#d9502e" />
+                </linearGradient>
+              </defs>
+              <circle class="clock__face" cx="200" cy="200" r="180" />
+              <circle class="clock__inner" cx="200" cy="200" r="122" />
+              <circle class="clock__arc" cx="200" cy="200" r="186" pathLength="1" />
+              <g class="clock__ticks"></g>
+              <line class="clock__hand clock__hand--h" x1="200" y1="214" x2="200" y2="118" />
+              <line class="clock__hand clock__hand--m" x1="200" y1="222" x2="200" y2="62" />
+              <circle cx="200" cy="200" r="9" class="clock__pin-ring" />
+              <circle cx="200" cy="200" r="4.5" class="clock__pin" />
+            </svg>
+          </div>
+          <div class="clock__label" aria-live="polite"><span class="js-clock-time">Yesterday · 3:00 PM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEAL PLAN ============ -->
+    <section class="plan" id="plan">
+      <div class="plan__bg-word" aria-hidden="true">PLAN</div>
+      <div class="plan__inner">
+        <div class="plan__visual">
+          <div class="plan__bowl"><img src="assets/img/protein-salad.jpg" alt="Protein salad bowl" loading="lazy" /></div>
+          <div class="plan__bowl plan__bowl--2"><img src="assets/img/couscous.jpg" alt="Couscous plate with vegetables" loading="lazy" /></div>
+          <span class="plan__sticker">New</span>
+        </div>
+        <div class="plan__copy">
+          <span class="eyebrow">ONSI Meal Plan</span>
+          <h2 class="plan__title">Your daily lunch, <em>sorted.</em></h2>
+          <div class="plan__price">
+            <span class="cur">$</span><span class="js-price" data-to="350">0</span><span class="per">/ month</span>
+          </div>
+          <ul class="plan__list">
+            <li><span>01</span> One main dish, every working day</li>
+            <li><span>02</span> One protein salad on the side</li>
+            <li><span>03</span> Delivered to your door</li>
+            <li><span>04</span> That's roughly <strong>$16 a day</strong> for a real, home-cooked meal</li>
+          </ul>
+          <a class="btn btn--accent magnetic" href="https://wa.me/9613706071?text=Hi%20ONSI%2C%20I'd%20like%20to%20join%20the%20meal%20plan" target="_blank" rel="noopener" data-cursor="Join">Join the meal plan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KITCHEN REVEAL ============ -->
+    <section class="kitchen" id="kitchen">
+      <div class="kitchen__inner">
+        <div class="kitchen__text">
+          <span class="eyebrow">Where it happens</span>
+          <h2>A clean, bright kitchen.<br /><em>Open from ten.</em></h2>
+          <span class="kitchen__ar">المطبخ</span>
+        </div>
+        <figure class="kitchen__frame">
+          <img src="assets/img/central-kitchen.jpg" alt="ONSI's central kitchen: stainless-steel prep tables, fridges and stoves under a 'Central Kitchen' sign" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ WORLD / HIGHLIGHTS ============ -->
+    <section class="world">
+      <div class="world__head">
+        <h2 class="world__title">The ONSI <em>world</em></h2>
+      </div>
+      <ul class="world__list">
+        <li data-img="assets/img/cat-main.jpg"><a href="#daily" data-cursor="View"><span class="n">01</span><span class="t">Our Daily Menu</span><span class="a">أطباق اليوم</span></a></li>
+        <li data-img="assets/img/cat-salads-bowl.jpg"><a href="#salads" data-cursor="View"><span class="n">02</span><span class="t">Salads</span><span class="a">سلطات</span></a></li>
+        <li data-img="assets/img/cat-appetizers.jpg"><a href="#appetizers" data-cursor="View"><span class="n">03</span><span class="t">Appetizers</span><span class="a">مقبلات</span></a></li>
+        <li data-img="assets/img/special.jpg"><a href="https://wa.me/9613706071?text=Hi%20ONSI%2C%20I'd%20like%20to%20place%20a%20special%20order" target="_blank" rel="noopener" data-cursor="Chat"><span class="n">04</span><span class="t">Special Orders</span><span class="a">طلبات خاصة</span></a></li>
+        <li data-img="assets/img/biryani.jpg"><a href="https://wa.me/9613706071?text=Hi%20ONSI%2C%20I'd%20like%20to%20share%20some%20feedback" target="_blank" rel="noopener" data-cursor="Chat"><span class="n">05</span><span class="t">Feedbacks</span><span class="a">آراؤكم</span></a></li>
+      </ul>
+
+      <div class="stats">
+        <div class="stat"><span class="stat__n"><span class="js-num" data-to="4418">0</span></span><span class="stat__l">people follow the kitchen</span></div>
+        <div class="stat"><span class="stat__n">10<small>AM</small>–5<small>PM</small></span><span class="stat__l">daily order hours</span></div>
+        <div class="stat"><span class="stat__n"><span class="js-num" data-to="1">0</span><small>day</small></span><span class="stat__l">order ahead, cooked fresh</span></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA / FOOTER ============ -->
+    <footer class="cta">
+      <span class="eyebrow eyebrow--light">Hungry for tomorrow?</span>
+      <h2 class="cta__title">
+        <span class="line"><span>Order</span></span>
+        <span class="line"><span><em>a day</em> ahead.</span></span>
+      </h2>
+      <a class="cta__phone magnetic" href="tel:+9613706071" data-cursor="Call">03 706 071</a>
+      <div class="cta__actions">
+        <a class="btn btn--light magnetic" href="https://wa.me/9613706071" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--ghost magnetic" href="https://www.instagram.com/onsi_kitchen/" target="_blank" rel="noopener">@onsi_kitchen</a>
+      </div>
+      <div class="cta__info">
+        <span>Daily orders · 10 AM – 5 PM</span>
+        <span>Delivery available</span>
+        <span>Order one day before</span>
+      </div>
+      <div class="cta__giant" aria-hidden="true">أُنسي</div>
+      <div class="cta__bottom">
+        <span>© <span class="js-year">2026</span> ONSI Kitchen</span>
+        <a href="#top" class="js-totop">Back to top ↑</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/daily.js"></script>
+  <script src="js/alacarte.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
