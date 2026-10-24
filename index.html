@@ -78,7 +78,12 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero__pin">
-        <div class="hero__bg" aria-hidden="true"><img src="assets/img/hero-bg-plate.jpg" alt="" /></div>
+        <div class="hero__bg" aria-hidden="true">
+          <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="assets/img/hero-bg-mobile.jpg" />
+            <img src="assets/img/hero-bg-desk.jpg" alt="" fetchpriority="high" />
+          </picture>
+        </div>
         <div class="hero__meta hero__meta--l">
           <span>Home Kitchen</span>
           <span>Lebanon</span>
