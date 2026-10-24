@@ -1,0 +1,466 @@
+{
+  "version": 1,
+  "daily": [
+    {
+      "key": "mon",
+      "en": "Monday",
+      "short": "Mon",
+      "ar": "الاثنين",
+      "dishes": [
+        {
+          "id": "daily-mon-1",
+          "en": "Chicken Kabsa with Special Sauce",
+          "ar": "كبسة دجاج مع صوص خاص",
+          "price": 10,
+          "special": false,
+          "photo": "daily-kabsa.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-mon-2",
+          "en": "Creamy Shrimp Pasta",
+          "ar": "معكرونة كريمية بالقريدس",
+          "price": 12,
+          "special": false,
+          "photo": "daily-shrimp-pasta.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-mon-3",
+          "en": "Grilled Kebab with Rice",
+          "ar": "كباب مشوي مع رز",
+          "price": 12,
+          "special": false,
+          "photo": "daily-kebab.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-mon-4",
+          "en": "Roast Beef with Mashed Potatoes",
+          "ar": "روستو مع بطاطا بوريه",
+          "price": 14,
+          "special": false,
+          "photo": "daily-roast-beef.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "key": "tue",
+      "en": "Tuesday",
+      "short": "Tue",
+      "ar": "الثلاثاء",
+      "dishes": [
+        {
+          "id": "daily-tue-1",
+          "en": "Laban Emmo with Rice",
+          "ar": "لبن أمو مع رز",
+          "price": 12,
+          "special": false,
+          "photo": "daily-laban-emmo.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-tue-2",
+          "en": "Chicken Stroganoff with Rice",
+          "ar": "ستروغنوف دجاج مع رز",
+          "price": 12,
+          "special": false,
+          "photo": "daily-stroganoff.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-tue-3",
+          "en": "Freek with Lamb Shanks",
+          "ar": "فريك مع موزات غنم",
+          "price": 13,
+          "special": false,
+          "photo": "daily-freek-shanks.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-tue-4",
+          "en": "Mahshi Koussa and Warak Enab with Lamb Slices",
+          "ar": "كوسى وورق عنب مع شرحات غنم",
+          "price": 14,
+          "special": false,
+          "photo": "daily-mahshi.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "key": "wed",
+      "en": "Wednesday",
+      "short": "Wed",
+      "ar": "الأربعاء",
+      "dishes": [
+        {
+          "id": "daily-wed-1",
+          "en": "Shrimp Rice with Sauce",
+          "ar": "رز بالقريدس مع صوص",
+          "price": 12,
+          "special": false,
+          "photo": "daily-shrimp-rice.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-wed-2",
+          "en": "Fish Sayadieh",
+          "ar": "صيادية سمك",
+          "price": 13,
+          "special": false,
+          "photo": "daily-sayadieh.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-wed-3",
+          "en": "Pesto Freek with Shrimp",
+          "ar": "فريك بالبيستو مع قريدس",
+          "price": 13,
+          "special": true,
+          "photo": "daily-pesto-freek.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-wed-4",
+          "en": "Shrimp and Spinach Lasagna",
+          "ar": "لازانيا بالقريدس والسبانخ",
+          "price": 13,
+          "special": true,
+          "photo": "daily-lasagna.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "key": "thu",
+      "en": "Thursday",
+      "short": "Thu",
+      "ar": "الخميس",
+      "dishes": [
+        {
+          "id": "daily-thu-1",
+          "en": "Molokhia with Chicken and Rice",
+          "ar": "ملوخية بالدجاج مع رز",
+          "price": 11,
+          "special": false,
+          "photo": "daily-molokhia.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-thu-2",
+          "en": "Kibbeh in Yogurt Sauce with Rice",
+          "ar": "كبة بلبن مع رز",
+          "price": 10,
+          "special": false,
+          "photo": "daily-kibbeh-laban.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-thu-3",
+          "en": "Moghrabieh with Chicken",
+          "ar": "مغربية بدجاج",
+          "price": 11,
+          "special": false,
+          "photo": "daily-moghrabieh.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-thu-4",
+          "en": "Grilled Beef Steak with Vegetables and Mushroom Sauce",
+          "ar": "ستيك لحمة مشوي مع خضار وصوص فطر",
+          "price": 15,
+          "special": false,
+          "photo": "daily-beef-steak.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "key": "fri",
+      "en": "Friday",
+      "short": "Fri",
+      "ar": "الجمعة",
+      "dishes": [
+        {
+          "id": "daily-fri-1",
+          "en": "Grilled Chicken Skewers with Rice",
+          "ar": "سياخ الدجاج المشوي مع رز",
+          "price": 10,
+          "special": false,
+          "photo": "daily-chicken-skewers.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-fri-2",
+          "en": "Ablama in Yogurt Sauce with Rice",
+          "ar": "أبلما بلبن مع رز",
+          "price": 11,
+          "special": false,
+          "photo": "daily-ablama.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-fri-3",
+          "en": "Baked Kibbeh with Cucumber Yogurt",
+          "ar": "كبة بالصينية مع لبن وخيار",
+          "price": 13,
+          "special": false,
+          "photo": "daily-baked-kibbeh.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-fri-4",
+          "en": "Grilled Chicken Steak with Vegetables and Mushroom Sauce",
+          "ar": "ستيك دجاج مشوي مع خضار وصوص فطر",
+          "price": 13,
+          "special": true,
+          "photo": "daily-chicken-steak.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "key": "sat",
+      "en": "Saturday",
+      "short": "Sat",
+      "ar": "السبت",
+      "dishes": [
+        {
+          "id": "daily-sat-1",
+          "en": "Lamb Mansaf",
+          "ar": "منسف لحمة",
+          "price": 10,
+          "special": false,
+          "photo": "daily-mansaf.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-sat-2",
+          "en": "Potato Soufflé with Salad",
+          "ar": "بطاطا سوفليه مع سلطة",
+          "price": 10,
+          "special": false,
+          "photo": "daily-potato-souffle.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-sat-3",
+          "en": "Shrimp Fajitas with Rice",
+          "ar": "فاهيتا بالقريدس مع رز",
+          "price": 11,
+          "special": false,
+          "photo": "daily-fajitas.jpg",
+          "available": true
+        },
+        {
+          "id": "daily-sat-4",
+          "en": "Fettuccine with Grilled Chicken or Grilled Shrimp",
+          "ar": "فوتوتشيني مع دجاج مشوي أو قريدس مشوي",
+          "price": 12,
+          "special": false,
+          "photo": "daily-fettuccine.jpg",
+          "available": true
+        }
+      ]
+    }
+  ],
+  "mansaf": [
+    {
+      "id": "mansaf-rice-lamb",
+      "en": "Rice Mansaf with Lamb",
+      "ar": "منسف رز مع لحم غنم",
+      "price": 40,
+      "photo": "mansaf-lamb.jpg",
+      "alt": "Rice mansaf with tender lamb, cashews and pistachios",
+      "available": true
+    },
+    {
+      "id": "mansaf-rice-chicken",
+      "en": "Rice Mansaf with Chicken",
+      "ar": "منسف رز مع دجاج",
+      "price": 32,
+      "photo": "mansaf-chicken.jpg",
+      "alt": "Rice mansaf with roasted chicken, cashews and barberries",
+      "available": true
+    },
+    {
+      "id": "mansaf-rice-skewers",
+      "en": "Rice Mansaf with Chicken Skewers",
+      "ar": "منسف رز مع سياخ دجاج",
+      "price": 40,
+      "photo": "mansaf-skewers.jpg",
+      "alt": "Round tray of rice ringed with grilled chicken skewers and a centre of cashews",
+      "available": true
+    },
+    {
+      "id": "mansaf-rice-shrimp",
+      "en": "Rice Mansaf with Shrimp",
+      "ar": "منسف رز مع قريدس",
+      "price": 48,
+      "photo": "mansaf-shrimp.jpg",
+      "alt": "Saffron rice mansaf topped with shrimp, nuts and herbs",
+      "available": true
+    },
+    {
+      "id": "mansaf-freek-lamb",
+      "en": "Freek Mansaf with Lamb",
+      "ar": "منسف فريك مع اللحم",
+      "price": 48,
+      "photo": "mansaf-freek-lamb.jpg",
+      "alt": "Freek mansaf with lamb, cashews and pistachios",
+      "available": true
+    },
+    {
+      "id": "mansaf-freek-chicken",
+      "en": "Freek Mansaf with Chicken",
+      "ar": "منسف فريك مع دجاج",
+      "price": 45,
+      "photo": "mansaf-freek-chicken.jpg",
+      "alt": "Freek mansaf tray with boneless shredded chicken, cashews and pistachios",
+      "available": true
+    },
+    {
+      "id": "mansaf-pesto-freek-shrimp",
+      "en": "Pesto Freek Mansaf with Shrimp",
+      "ar": "منسف فريك بالبيستو والقريدس",
+      "price": 48,
+      "photo": "mansaf-pesto-shrimp.jpg",
+      "alt": "Pesto freek mansaf with grilled shrimp and cashews",
+      "available": true
+    }
+  ],
+  "appetizers": [
+    {
+      "id": "appetizers-1",
+      "en": "Fattoush",
+      "ar": "فتوش",
+      "price": 6,
+      "photo": "app-fattoush.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-2",
+      "en": "Tabbouleh",
+      "ar": "تبولة",
+      "price": 4,
+      "photo": "app-tabbouleh.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-3",
+      "en": "Burghul with Tomato",
+      "ar": "برغل على بندورة",
+      "price": 5,
+      "photo": "app-burghul.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-4",
+      "en": "Mdardara",
+      "ar": "مدردرة",
+      "price": 5,
+      "photo": "app-mdardara.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-5",
+      "en": "Hindbeh",
+      "ar": "هندباء",
+      "price": 5,
+      "photo": "app-hindbeh.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-6",
+      "en": "Mdallal",
+      "ar": "مدلل",
+      "price": 5,
+      "photo": "app-mdallal.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-7",
+      "en": "Muhammara",
+      "ar": "محمرة",
+      "price": 5,
+      "photo": "app-muhammara.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-8",
+      "en": "Cheese Rakakat",
+      "ar": "رقاقات جبنة",
+      "price": 5,
+      "photo": "app-rakakat.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-9",
+      "en": "Kibbeh",
+      "ar": "كبب",
+      "price": 5,
+      "photo": "app-kibbeh.jpg",
+      "available": true
+    },
+    {
+      "id": "appetizers-10",
+      "en": "Warak Enab bi Zeit",
+      "ar": "ورق عنب بزيت",
+      "price": 5,
+      "photo": "app-warak.jpg",
+      "available": true
+    }
+  ],
+  "salads": [
+    {
+      "id": "salads-1",
+      "en": "Kale Salad with Grilled Chicken",
+      "ar": "سلطة الكايل مع الدجاج المشوي",
+      "price": 12,
+      "photo": "salad-kale.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-2",
+      "en": "Marie Salad with Grilled Shrimp",
+      "ar": "سلطة ماري مع القريدس المشوي",
+      "price": 12,
+      "photo": "salad-marie.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-3",
+      "en": "Pasta Salad with Boiled Shrimp",
+      "ar": "سلطة الباستا مع القريدس المسلوق",
+      "price": 12,
+      "photo": "salad-pasta-shrimp.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-4",
+      "en": "Mexican Salad with Grilled Beef",
+      "ar": "سلطة مكسيكية مع اللحم المشوي",
+      "price": 13,
+      "photo": "salad-mexican.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-5",
+      "en": "Tuna Pasta Salad",
+      "ar": "سلطة الباستا مع التونا",
+      "price": 10,
+      "photo": "salad-tuna.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-6",
+      "en": "Caesar Salad with Grilled Chicken",
+      "ar": "سلطة السيزر مع الدجاج المشوي",
+      "price": 12,
+      "photo": "salad-caesar.jpg",
+      "available": true
+    }
+  ]
+}

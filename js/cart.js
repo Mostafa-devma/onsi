@@ -54,6 +54,22 @@
     },
   }));
 
+  // Keep a saved cart in step with the live menu (edited from /admin): refresh names and prices,
+  // and drop dishes that were removed or marked sold out since they were added.
+  const live = new Map(items.map((x) => [x.id, x.item]));
+  let changed = false;
+  Object.keys(cart).forEach((id) => {
+    const now = live.get(id);
+    if (!now) {
+      delete cart[id];
+      changed = true;
+    } else if (now.price !== cart[id].price || now.name !== cart[id].name || now.ar !== cart[id].ar) {
+      cart[id] = { ...now, qty: cart[id].qty };
+      changed = true;
+    }
+  });
+  if (changed) save(STORE_KEY, cart);
+
   items.forEach(({ id, slot, item }) =>
     slot.addEventListener("click", (e) => {
       const btn = e.target.closest("button");

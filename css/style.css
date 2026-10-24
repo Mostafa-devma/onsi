@@ -433,7 +433,7 @@ ol, ul { list-style: none; }
 }
 .hero__word { display: flex; will-change: transform; }
 .hero__word .ch { display: inline-block; will-change: transform; }
-.hero__word--r .ch:first-child { font-style: italic; color: var(--saffron); }
+.hero__word .ch--accent { font-style: italic; color: var(--saffron); }
 
 .hero__plate-wrap {
   position: relative;

@@ -1,53 +1,28 @@
 /* =========================================================
-   ONSI — أُنسي · Appetizers & Salads
-   Source: the owner's price notes. [English, Arabic, price $, photo?]
-   A photo is only set when it is that exact dish.
+   ONSI — أُنسي · Appetizers, Salads and Mansaf for four
+   Items come from window.ONSI_MENU (loaded by boot.js, edited in /admin).
+   Items marked unavailable (sold out) are left out.
    ========================================================= */
 (() => {
-  const LISTS = {
-    appetizers: {
-      note: "Appetizer",
-      items: [
-        ["Fattoush", "فتوش", 6, "app-fattoush.jpg"],
-        ["Tabbouleh", "تبولة", 4, "app-tabbouleh.jpg"],
-        ["Burghul with Tomato", "برغل على بندورة", 5, "app-burghul.jpg"],
-        ["Mdardara", "مدردرة", 5, "app-mdardara.jpg"],
-        ["Hindbeh", "هندباء", 5, "app-hindbeh.jpg"],
-        ["Mdallal", "مدلل", 5, "app-mdallal.jpg"],
-        ["Muhammara", "محمرة", 5, "app-muhammara.jpg"],
-        ["Cheese Rakakat", "رقاقات جبنة", 5, "app-rakakat.jpg"],
-        ["Kibbeh", "كبب", 5, "app-kibbeh.jpg"],
-        ["Warak Enab bi Zeit", "ورق عنب بزيت", 5, "app-warak.jpg"],
-      ],
-    },
-    salads: {
-      note: "Salad",
-      items: [
-        ["Kale Salad with Grilled Chicken", "سلطة الكايل مع الدجاج المشوي", 12, "salad-kale.jpg"],
-        ["Marie Salad with Grilled Shrimp", "سلطة ماري مع القريدس المشوي", 12, "salad-marie.jpg"],
-        ["Pasta Salad with Boiled Shrimp", "سلطة الباستا مع القريدس المسلوق", 12, "salad-pasta-shrimp.jpg"],
-        ["Mexican Salad with Grilled Beef", "سلطة مكسيكية مع اللحم المشوي", 13, "salad-mexican.jpg"],
-        ["Tuna Pasta Salad", "سلطة الباستا مع التونا", 10, "salad-tuna.jpg"],
-        ["Caesar Salad with Grilled Chicken", "سلطة السيزر مع الدجاج المشوي", 12, "salad-caesar.jpg"],
-      ],
-    },
-  };
-
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const MENU = window.ONSI_MENU || {};
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const { ar: AR, t } = window.ONSI_I18N || { ar: false, t: (s) => s };
+  const shown = (list) => (list || []).filter((x) => x.available !== false);
+  const large = (photo) => photo.replace(/\.(jpe?g|png|webp)$/i, "-lg.$1");
 
-  // Same row markup as Daily Meals, so the cart and the photo viewer pick these up too
+  /* ---------- Appetizers & Salads: same row markup as Daily Meals (cart + photo viewer reuse it) ---------- */
+  const NOTES = { appetizers: "Appetizer", salads: "Salad" };
   document.querySelectorAll(".js-carte").forEach((list) => {
-    const { note, items } = LISTS[list.dataset.list];
-    list.innerHTML = items
+    const key = list.dataset.list;
+    list.innerHTML = shown(MENU[key])
       .map(
-        ([en, ar, price, photo], j) => `
+        ({ id, en, ar, price, photo }, j) => `
         <li class="daily__item" style="--i:${j}"
-          data-cart-id="${list.dataset.list}-${j + 1}" data-name="${esc(en)}" data-ar="${esc(ar)}" data-price="${price}" data-note="${note}">
+          data-cart-id="${esc(id)}" data-name="${esc(en)}" data-ar="${esc(ar)}" data-price="${price}" data-note="${NOTES[key]}">
           ${
             photo
-              ? `<button type="button" class="daily__thumb" data-full="assets/img/${photo.replace(".jpg", "-lg.jpg")}" aria-label="${t("View photo")}: ${esc(AR ? ar : en)}">
-                  <img src="assets/img/${photo}" alt="" loading="lazy" width="240" height="240" />
+              ? `<button type="button" class="daily__thumb" data-full="assets/img/${esc(large(photo))}" aria-label="${t("View photo")}: ${esc(AR ? ar : en)}">
+                  <img src="assets/img/${esc(photo)}" alt="" loading="lazy" width="240" height="240" />
                 </button>`
               : `<span class="daily__no">${String(j + 1).padStart(2, "0")}</span>`
           }
@@ -65,4 +40,27 @@
       )
       .join("");
   });
+
+  /* ---------- Mansaf for four: photo cards ---------- */
+  const grid = document.querySelector(".js-mansaf");
+  if (grid) {
+    grid.innerHTML = shown(MENU.mansaf)
+      .map(({ id, en, ar, price, photo, alt }) => {
+        const title = AR ? ar : en;
+        const sub = AR ? en : ar;
+        const img = photo
+          ? `<button type="button" class="tray__zoom" data-full="assets/img/${esc(large(photo))}" aria-label="${t("View photo")}: ${esc(AR ? title : alt || title)}"><img src="assets/img/${esc(photo)}" alt="" loading="lazy" width="640" height="640" /></button>`
+          : `<span class="tray__mark" lang="ar">${esc(ar)}</span>`;
+        return `
+          <li class="tray${photo ? "" : " tray--text"}" data-cart-id="${esc(id)}" data-name="${esc(en)}" data-ar="${esc(ar)}" data-price="${price}" data-note="Mansaf for 4">
+            <div class="tray__img">${img}<span class="tray__serves">${t("Serves 4")}</span></div>
+            <div class="tray__body">
+              <div class="tray__row"><h3>${esc(title)}</h3><span class="tray__price"><small>$</small>${price}</span></div>
+              <span class="tray__ar" lang="${AR ? "en" : "ar"}">${esc(sub)}</span>
+              <div class="tray__cart js-cart-slot"></div>
+            </div>
+          </li>`;
+      })
+      .join("");
+  }
 })();

@@ -18,6 +18,8 @@
   const WORDS = {
     Monday: "الاثنين", Tuesday: "الثلاثاء", Wednesday: "الأربعاء", Thursday: "الخميس", Friday: "الجمعة", Saturday: "السبت",
     Tomorrow: "غداً",
+    "Serves 4": "لـ ٤ أشخاص",
+    "Nothing on the menu for this day yet.": "لا توجد أطباق لهذا اليوم بعد.",
     "ONSI Special": "مميز من أُنسي",
     "Mansaf for 4": "منسف لـ ٤ أشخاص",
     Appetizer: "مقبلات",
@@ -126,7 +128,6 @@
     [".mansaf__head .eyebrow", "طلب مسبق · لـ ٤ أشخاص"],
     [".mansaf__title", "مناسف <em>لأربعة.</em>"],
     [".mansaf__intro", "صوانٍ احتفالية للعائلة كلها، مزيّنة بالكاجو والمكسرات. يرجى الطلب قبل يوم."],
-    [".tray__serves", "لـ ٤ أشخاص"],
     // appetizers & salads
     ["#appetizers .eyebrow", "مازة"],
     ["#appetizers .carte__title", "مقبلات"],
@@ -187,12 +188,6 @@
     card.querySelector(".cat__cta").innerHTML = `${c[3]} <i aria-hidden="true">→</i>`;
   });
   set(".cat__badge", "لـ ٤ أشخاص · طلب مسبق");
-
-  /* ---------- Mansaf trays: Arabic name as the title ---------- */
-  $$(".tray").forEach((tray) => {
-    tray.querySelector("h3").textContent = tray.dataset.ar;
-    tray.querySelector(".tray__ar").textContent = tray.dataset.name;
-  });
 
   /* ---------- How it works: steps and the clock labels ---------- */
   const STEPS = [

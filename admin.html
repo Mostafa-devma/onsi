@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ONSI · Menu admin</title>
+  <meta name="theme-color" content="#14110d" />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Fraunces:opsz,wght@9..144,300..600&family=Manrope:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- ============ LOGIN ============ -->
+  <main class="login" id="login">
+    <form class="login__card" id="login-form" autocomplete="on">
+      <div class="brand"><span class="brand__ar">أُنسي</span><span class="brand__en">ONSI</span></div>
+      <h1>Menu admin</h1>
+      <p class="muted">Enter the admin password to manage dishes, prices and what's sold out.</p>
+      <label class="field">
+        <span>Password</span>
+        <input type="password" name="password" id="password" autocomplete="current-password" required autofocus />
+      </label>
+      <p class="login__error" id="login-error" role="alert" hidden></p>
+      <button class="btn btn--accent" type="submit" id="login-btn">Sign in</button>
+      <a class="muted small" href="/">← Back to the website</a>
+    </form>
+  </main>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="brand__ar">أُنسي</span><span class="brand__en">ONSI</span><span class="brand__tag">Menu admin</span></div>
+      <div class="topbar__actions">
+        <span class="status" id="status" aria-live="polite">Loaded</span>
+        <button class="btn btn--accent" type="button" id="save-btn" disabled>Save changes</button>
+        <a class="btn btn--ghost" href="/" target="_blank" rel="noopener">View site ↗</a>
+        <button class="btn btn--ghost" type="button" id="logout-btn">Log out</button>
+      </div>
+    </header>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <nav class="sections" role="tablist" aria-label="Menu sections">
+      <button type="button" role="tab" class="sections__tab" data-section="daily" aria-selected="true">Daily Meals <span class="ar">أطباق اليوم</span></button>
+      <button type="button" role="tab" class="sections__tab" data-section="mansaf" aria-selected="false">Mansaf for Four <span class="ar">مناسف</span></button>
+      <button type="button" role="tab" class="sections__tab" data-section="appetizers" aria-selected="false">Appetizers <span class="ar">مقبلات</span></button>
+      <button type="button" role="tab" class="sections__tab" data-section="salads" aria-selected="false">Salads <span class="ar">سلطات</span></button>
+    </nav>
+
+    <main class="board">
+      <div class="days" id="days" role="tablist" aria-label="Day of the week"></div>
+      <div class="board__head">
+        <h2 id="list-title">Monday</h2>
+        <span class="muted small" id="list-count"></span>
+      </div>
+      <ol class="dishes" id="dishes"></ol>
+      <button class="btn btn--outline add" type="button" id="add-btn">+ Add dish</button>
+
+      <footer class="board__foot">
+        <p class="muted small">Tip: switch off <b>Available</b> to hide a dish while it's sold out — it stays saved here. Photos are file names from <code>assets/img/</code>.</p>
+        <button class="link-btn" type="button" id="restore-btn">Restore the original menu</button>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <datalist id="photo-list"></datalist>
+  <script src="js/admin.js"></script>
+</body>
+</html>

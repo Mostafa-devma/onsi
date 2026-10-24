@@ -1,65 +1,13 @@
 /* =========================================================
    ONSI — أُنسي · Daily Meals (Monday → Saturday)
-   Source: the weekly menu cards. [English, Arabic, price $, ONSI Kitchen Special?, photo?]
-   A photo is only set when it is that exact dish.
+   Dishes come from window.ONSI_MENU.daily (loaded by boot.js, edited in /admin).
+   Dishes marked unavailable (sold out) are left out.
    ========================================================= */
 (() => {
-  const DAYS = [
-    {
-      key: "mon", en: "Monday", short: "Mon", ar: "الاثنين",
-      dishes: [
-        ["Chicken Kabsa with Special Sauce", "كبسة دجاج مع صوص خاص", 10, false, "daily-kabsa.jpg"],
-        ["Creamy Shrimp Pasta", "معكرونة كريمية بالقريدس", 12, false, "daily-shrimp-pasta.jpg"],
-        ["Grilled Kebab with Rice", "كباب مشوي مع رز", 12, false, "daily-kebab.jpg"],
-        ["Roast Beef with Mashed Potatoes", "روستو مع بطاطا بوريه", 14, false, "daily-roast-beef.jpg"],
-      ],
-    },
-    {
-      key: "tue", en: "Tuesday", short: "Tue", ar: "الثلاثاء",
-      dishes: [
-        ["Laban Emmo with Rice", "لبن أمو مع رز", 12, false, "daily-laban-emmo.jpg"],
-        ["Chicken Stroganoff with Rice", "ستروغنوف دجاج مع رز", 12, false, "daily-stroganoff.jpg"],
-        ["Freek with Lamb Shanks", "فريك مع موزات غنم", 13, false, "daily-freek-shanks.jpg"],
-        ["Mahshi Koussa and Warak Enab with Lamb Slices", "كوسى وورق عنب مع شرحات غنم", 14, false, "daily-mahshi.jpg"],
-      ],
-    },
-    {
-      key: "wed", en: "Wednesday", short: "Wed", ar: "الأربعاء",
-      dishes: [
-        ["Shrimp Rice with Sauce", "رز بالقريدس مع صوص", 12, false, "daily-shrimp-rice.jpg"],
-        ["Fish Sayadieh", "صيادية سمك", 13, false, "daily-sayadieh.jpg"],
-        ["Pesto Freek with Shrimp", "فريك بالبيستو مع قريدس", 13, true, "daily-pesto-freek.jpg"],
-        ["Shrimp and Spinach Lasagna", "لازانيا بالقريدس والسبانخ", 13, true, "daily-lasagna.jpg"],
-      ],
-    },
-    {
-      key: "thu", en: "Thursday", short: "Thu", ar: "الخميس",
-      dishes: [
-        ["Molokhia with Chicken and Rice", "ملوخية بالدجاج مع رز", 11, false, "daily-molokhia.jpg"],
-        ["Kibbeh in Yogurt Sauce with Rice", "كبة بلبن مع رز", 10, false, "daily-kibbeh-laban.jpg"],
-        ["Moghrabieh with Chicken", "مغربية بدجاج", 11, false, "daily-moghrabieh.jpg"],
-        ["Grilled Beef Steak with Vegetables and Mushroom Sauce", "ستيك لحمة مشوي مع خضار وصوص فطر", 15, false, "daily-beef-steak.jpg"],
-      ],
-    },
-    {
-      key: "fri", en: "Friday", short: "Fri", ar: "الجمعة",
-      dishes: [
-        ["Grilled Chicken Skewers with Rice", "سياخ الدجاج المشوي مع رز", 10, false, "daily-chicken-skewers.jpg"],
-        ["Ablama in Yogurt Sauce with Rice", "أبلما بلبن مع رز", 11, false, "daily-ablama.jpg"],
-        ["Baked Kibbeh with Cucumber Yogurt", "كبة بالصينية مع لبن وخيار", 13, false, "daily-baked-kibbeh.jpg"],
-        ["Grilled Chicken Steak with Vegetables and Mushroom Sauce", "ستيك دجاج مشوي مع خضار وصوص فطر", 13, true, "daily-chicken-steak.jpg"],
-      ],
-    },
-    {
-      key: "sat", en: "Saturday", short: "Sat", ar: "السبت",
-      dishes: [
-        ["Lamb Mansaf", "منسف لحمة", 10, false, "daily-mansaf.jpg"],
-        ["Potato Soufflé with Salad", "بطاطا سوفليه مع سلطة", 10, false, "daily-potato-souffle.jpg"],
-        ["Shrimp Fajitas with Rice", "فاهيتا بالقريدس مع رز", 11, false, "daily-fajitas.jpg"],
-        ["Fettuccine with Grilled Chicken or Grilled Shrimp", "فوتوتشيني مع دجاج مشوي أو قريدس مشوي", 12, false, "daily-fettuccine.jpg"],
-      ],
-    },
-  ];
+  const DAYS = (window.ONSI_MENU?.daily || []).map((d) => ({
+    ...d,
+    dishes: (d.dishes || []).filter((x) => x.available !== false),
+  }));
 
   const root = document.querySelector(".js-daily");
   if (!root) return;
@@ -97,15 +45,16 @@
     (d, i) => `
       <div class="daily__panel" role="tabpanel" id="daily-panel-${d.key}" aria-labelledby="daily-tab-${d.key}" ${i === startIdx ? "" : "hidden"}>
         <ol class="daily__list">
+          ${d.dishes.length ? "" : `<li class="daily__empty">${t("Nothing on the menu for this day yet.")}</li>`}
           ${d.dishes
             .map(
-              ([en, ar, price, special, photo], j) => `
+              ({ id, en, ar, price, special, photo }, j) => `
             <li class="daily__item" style="--i:${j}"
-              data-cart-id="daily-${d.key}-${j + 1}" data-name="${esc(en)}" data-ar="${esc(ar)}" data-price="${price}" data-day="${d.en}">
+              data-cart-id="${esc(id)}" data-name="${esc(en)}" data-ar="${esc(ar)}" data-price="${price}" data-day="${d.en}">
               ${
                 photo
-                  ? `<button type="button" class="daily__thumb" data-full="assets/img/${photo.replace(".jpg", "-lg.jpg")}" aria-label="${t("View photo")}: ${esc(names(en, ar).title)}">
-                      <img src="assets/img/${photo}" alt="" loading="lazy" width="240" height="240" />
+                  ? `<button type="button" class="daily__thumb" data-full="assets/img/${esc(photo.replace(/\.(jpe?g|png|webp)$/i, "-lg.$1"))}" aria-label="${t("View photo")}: ${esc(names(en, ar).title)}">
+                      <img src="assets/img/${esc(photo)}" alt="" loading="lazy" width="240" height="240" />
                     </button>`
                   : `<span class="daily__no">${String(j + 1).padStart(2, "0")}</span>`
               }
