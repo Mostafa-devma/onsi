@@ -333,22 +333,6 @@
   ],
   "appetizers": [
     {
-      "id": "appetizers-1",
-      "en": "Fattoush",
-      "ar": "فتوش",
-      "price": 6,
-      "photo": "app-fattoush.jpg",
-      "available": true
-    },
-    {
-      "id": "appetizers-2",
-      "en": "Tabbouleh",
-      "ar": "تبولة",
-      "price": 4,
-      "photo": "app-tabbouleh.jpg",
-      "available": true
-    },
-    {
       "id": "appetizers-3",
       "en": "Burghul with Tomato",
       "ar": "برغل على بندورة",
@@ -414,6 +398,22 @@
     }
   ],
   "salads": [
+    {
+      "id": "salads-fattoush",
+      "en": "Fattoush",
+      "ar": "فتوش",
+      "price": 6,
+      "photo": "app-fattoush.jpg",
+      "available": true
+    },
+    {
+      "id": "salads-tabbouleh",
+      "en": "Tabbouleh",
+      "ar": "تبولة",
+      "price": 4,
+      "photo": "app-tabbouleh.jpg",
+      "available": true
+    },
     {
       "id": "salads-1",
       "en": "Kale Salad with Grilled Chicken",
