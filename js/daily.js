@@ -155,12 +155,28 @@
   const viewer = document.querySelector(".photo-view");
   const vImg = viewer.querySelector(".photo-view__img");
   let opener = null;
+  let hideTimer = null;
+  let current = ""; // the large image that should be showing; guards against late loads
 
   // Any [data-full] button inside an orderable item (Daily Meals rows, Mansaf trays) opens the viewer
   const openPhoto = (thumb) => {
     const row = thumb.closest("[data-cart-id]");
     opener = thumb;
-    vImg.src = thumb.dataset.full;
+    clearTimeout(hideTimer); // a pending close must not hide the photo we are opening now
+    // Show the tapped picture at once (its small version is already loaded), never the previous one,
+    // then swap in the large version when it has downloaded.
+    const full = thumb.dataset.full;
+    current = full;
+    const small = thumb.querySelector("img");
+    vImg.src = small ? small.currentSrc || small.src : full;
+    viewer.classList.toggle("is-loading", !!small);
+    const big = new Image();
+    big.onload = () => {
+      if (current !== full) return; // another photo was opened meanwhile
+      vImg.src = full;
+      viewer.classList.remove("is-loading");
+    };
+    big.src = full;
     const main = AR ? row.dataset.ar : row.dataset.name;
     const second = viewer.querySelector(".photo-view__ar");
     vImg.alt = main;
@@ -178,7 +194,12 @@
   const closePhoto = () => {
     viewer.classList.remove("is-open");
     window.onsiLenis?.start();
-    setTimeout(() => (viewer.hidden = true), 400);
+    current = "";
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      viewer.hidden = true;
+      vImg.removeAttribute("src"); // nothing stale left for the next open
+    }, 400);
     opener?.focus();
   };
 

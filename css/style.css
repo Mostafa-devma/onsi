@@ -1412,7 +1412,14 @@ ol, ul { list-style: none; }
   border-radius: 20px;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
   cursor: default;
+  width: min(560px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--ink-2);
+  transition: filter 0.35s var(--ease);
 }
+/* small preview shown while the large photo downloads */
+.photo-view.is-loading .photo-view__img { filter: blur(6px); }
 .photo-view__cap { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; color: var(--cream); }
 .photo-view__day { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); }
 .photo-view__name { font-family: var(--f-display); font-weight: 400; font-size: clamp(22px, 3vw, 30px); line-height: 1.15; }
