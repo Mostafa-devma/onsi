@@ -99,7 +99,7 @@
         <label>${t("Name")}<input name="name" autocomplete="name" /></label>
         <label>${t("Delivery address")}<input name="address" autocomplete="street-address" /></label>
         <label>${t("Notes")}<textarea name="notes" rows="2" placeholder="${t("Allergies, timing, extra sauce…")}"></textarea></label>
-        <p class="cart__hint">${t("Orders are cooked fresh the next day, 10 AM – 5 PM.")}</p>
+        <p class="cart__hint">${t("Order early to save your spot. Delivery 10 AM – 5 PM.")}</p>
         <button class="btn btn--accent cart__send" type="submit">${t("Send order on WhatsApp")}</button>
         <button class="cart__clear" type="button">${t("Clear order")}</button>
       </form>
@@ -220,7 +220,6 @@
     if (name.value.trim()) lines.push(`${t("Name:")} ${name.value.trim()}`);
     if (address.value.trim()) lines.push(`${t("Delivery address:")} ${address.value.trim()}`);
     if (notes.value.trim()) lines.push(`${t("Notes:")} ${notes.value.trim()}`);
-    if (!Object.values(cart).some((i) => i.day)) lines.push(t("Delivery: tomorrow"));
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
   });
 

@@ -22,10 +22,12 @@
       : `<span class="daily__ar" lang="ar" dir="rtl">${esc(ar)}</span>`,
   });
 
-  // Orders go in a day ahead, so open on tomorrow (Sunday has no menu → Monday)
-  const tomorrow = (new Date().getDay() + 1) % 7; // 0 = Sunday
-  const tomorrowIdx = tomorrow === 0 ? -1 : tomorrow - 1;
-  const startIdx = tomorrowIdx === -1 ? 0 : tomorrowIdx;
+  // Open on today; after 5 PM (deliveries done) on tomorrow. Sunday has no menu → Monday
+  const now = new Date();
+  const showTomorrow = now.getHours() >= 17;
+  const day = (now.getDay() + (showTomorrow ? 1 : 0)) % 7; // 0 = Sunday
+  const dayIdx = day === 0 ? -1 : day - 1;
+  const startIdx = dayIdx === -1 ? 0 : dayIdx;
 
   const tabs = DAYS.map(
     (d, i) => `
@@ -37,7 +39,7 @@
             : `<span class="daily__tab-en"><span class="full">${d.en}</span><span class="short">${d.short}</span></span>
         <span class="daily__tab-ar">${d.ar}</span>`
         }
-        ${i === tomorrowIdx ? `<span class="daily__tag">${t("Tomorrow")}</span>` : ""}
+        ${i === dayIdx ? `<span class="daily__tag">${t(showTomorrow ? "Tomorrow" : "Today")}</span>` : ""}
       </button>`
   ).join("");
 

@@ -17,6 +17,7 @@
   // Short labels the other scripts look up by their English text
   const WORDS = {
     Monday: "الاثنين", Tuesday: "الثلاثاء", Wednesday: "الأربعاء", Thursday: "الخميس", Friday: "الجمعة", Saturday: "السبت",
+    Today: "اليوم",
     Tomorrow: "غداً",
     "Serves 4": "لـ ٤ أشخاص",
     "Nothing on the menu for this day yet.": "لا توجد أطباق لهذا اليوم بعد.",
@@ -38,7 +39,7 @@
     "Delivery address": "عنوان التوصيل",
     Notes: "ملاحظات",
     "Allergies, timing, extra sauce…": "حساسية، توقيت، صوص إضافي…",
-    "Orders are cooked fresh the next day, 10 AM – 5 PM.": "تُطبخ الطلبات طازجة في اليوم التالي، من 10 صباحاً حتى 5 مساءً.",
+    "Order early to save your spot. Delivery 10 AM – 5 PM.": "اطلب بكّير لتحجز دورك. التوصيل من 10 صباحاً حتى 5 مساءً.",
     "Send order on WhatsApp": "أرسل الطلب على واتساب",
     "Clear order": "امسح الطلب",
     Total: "المجموع",
@@ -49,7 +50,6 @@
     "Name:": "الاسم:",
     "Delivery address:": "عنوان التوصيل:",
     "Notes:": "ملاحظات:",
-    "Delivery: tomorrow": "التوصيل: بكرا",
   };
   const t = (en) => (AR && WORDS[en]) || en;
   window.ONSI_I18N = { lang, ar: AR, t };
@@ -118,7 +118,7 @@
     // daily meals
     [".daily__head .eyebrow", "أطباق اليوم"],
     [".daily__title", "مائدة جديدة، <em>كل يوم.</em>"],
-    [".daily__sub", "أربعة أطباق بيتية كل يوم، من الاثنين إلى السبت. اختر يومك واطلب قبل يوم."],
+    [".daily__sub", "أربعة أطباق بيتية كل يوم، من الاثنين إلى السبت. اختر يومك واطلب بكّير لتحجز دورك."],
     [
       ".daily__note",
       'تُطبخ طازجة صباح نفس اليوم · التوصيل من 10 صباحاً حتى 5 مساءً · <span class="daily__note-special">مميز من أُنسي</span> = طبق من ابتكارنا',
@@ -127,7 +127,7 @@
     // mansaf for four
     [".mansaf__head .eyebrow", "طلب مسبق · لـ ٤ أشخاص"],
     [".mansaf__title", "مناسف <em>لأربعة.</em>"],
-    [".mansaf__intro", "صوانٍ احتفالية للعائلة كلها، مزيّنة بالكاجو والمكسرات. يرجى الطلب قبل يوم."],
+    [".mansaf__intro", "صوانٍ احتفالية للعائلة كلها، مزيّنة بالكاجو والمكسرات. اطلب بكّير لتحجز صينيتك."],
     // appetizers & salads
     ["#appetizers .eyebrow", "مازة"],
     ["#appetizers .carte__title", "مقبلات"],
@@ -138,7 +138,7 @@
     // how it works
     [".ritual .eyebrow", "كيف نعمل"],
     [".ritual__title", "يوم في <em>حياة</em> غدائك"],
-    [".js-clock-time", "أمس · 3:00 مساءً"],
+    [".js-clock-time", "اليوم · 8:00 صباحاً"],
     // meal plan
     [".plan__sticker", "جديد"],
     [".plan__copy .eyebrow", "اشتراك أُنسي الشهري"],
@@ -158,15 +158,14 @@
     [".stat:nth-child(1) .stat__l", "شخص يتابعون المطبخ"],
     [".stat:nth-child(2) .stat__n", "10<small>ص</small>–5<small>م</small>"],
     [".stat:nth-child(2) .stat__l", "ساعات الطلب اليومية"],
-    [".stat:nth-child(3) .stat__n small", "يوم"],
-    [".stat:nth-child(3) .stat__l", "اطلب قبل يوم، يُطبخ طازجاً"],
+    [".stat:nth-child(3) .stat__l", "أطباق بيتية جديدة كل يوم"],
     // footer
-    [".cta .eyebrow", "جوعان لبكرا؟"],
+    [".cta .eyebrow", "جوعان؟"],
     [".cta__title .line:nth-child(1) > span", "اطلب"],
-    [".cta__title .line:nth-child(2) > span", "<em>قبل يوم.</em>"],
+    [".cta__title .line:nth-child(2) > span", "<em>بكّير.</em>"],
     [".cta__info span:nth-child(1)", "طلبات يومية · من 10 صباحاً حتى 5 مساءً"],
     [".cta__info span:nth-child(2)", "التوصيل متوفر"],
-    [".cta__info span:nth-child(3)", "اطلب قبل يوم"],
+    [".cta__info span:nth-child(3)", "اطلب بكّير واحجز دورك"],
     [".cta__bottom > span", '© <span class="js-year">2026</span> مطبخ أُنسي'],
     [".js-totop", "للأعلى ↑"],
   ].forEach(([sel, html]) => set(sel, html));
@@ -191,7 +190,7 @@
 
   /* ---------- How it works: steps and the clock labels ---------- */
   const STEPS = [
-    ["قبل بيوم", "تطلب", 'اتصل بنا أو راسلنا على <strong dir="ltr">03 706 071</strong>. يرجى الطلب قبل يوم لنتسوّق لك مكوّنات طازجة.', "أمس · 3:00 مساءً"],
+    ["بكّير", "تطلب", 'اتصل بنا أو راسلنا على <strong dir="ltr">03 706 071</strong>. اطلب بكّير لتلحق تحجز دورك.', "اليوم · 8:00 صباحاً"],
     ["10:00 صباحاً", "نطبخ", "يفتح المطبخ وتبدأ الطناجر. كل شيء يُطبخ صباح نفس اليوم، ولا شيء يُسخَّن من الأمس.", "اليوم · 10:00 صباحاً"],
     ["قبل 5:00 مساءً", "يوصل لعندك", "التوصيل متوفر. وجبتك تصل إلى بابك مغلّفة بعناية، ولا تزال تحمل دفء الطبخ.", "اليوم · 5:00 مساءً"],
   ];
