@@ -165,7 +165,9 @@
   const counter = { v: 0 };
   const draw = () => {
     $(".js-count").textContent = String(Math.round(counter.v)).padStart(2, "0");
-    gsap.set(".loader__ar", { backgroundPosition: `${counter.v}% 0` });
+    const p = counter.v / 100;
+    gsap.set(".loader__draw", { strokeDashoffset: 1 - p });
+    gsap.set(".loader__word", { opacity: Math.max(0, (p - 0.5) * 2) });
     gsap.set(".loader__line span", { scaleX: counter.v / 100 });
   };
   let finish;
@@ -209,8 +211,7 @@
       .to(".loader__panel--top", { yPercent: -100, duration: 1.1, ease: "expo.inOut" }, "-=0.1")
       .to(".loader__panel--bottom", { yPercent: 100, duration: 1.1, ease: "expo.inOut" }, "<")
       .from(".hero__word .ch", { yPercent: 110, rotate: 8, opacity: 0, duration: 1.3, stagger: 0.07, ease: "expo.out" }, "-=0.55")
-      .from(".hero__plate", { scale: 0, rotate: -200, duration: 1.5, ease: "expo.out" }, "<0.1")
-      .from(".hero__ring", { opacity: 0, scale: 0.7, duration: 1.2, ease: "expo.out" }, "<0.3")
+      .fromTo(".hero__draw", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.8, stagger: 0.15, ease: "power2.inOut" }, "<")
       .from(".hero__sub .line > span", { yPercent: 105, duration: 1, stagger: 0.1, ease: "expo.out" }, "<0.1")
       .from([".hero__meta", ".hero__scroll"], { opacity: 0, y: 16, duration: 0.9, stagger: 0.06, ease: "power3.out" }, "<0.2")
       .from(".nav", { opacity: 0, duration: 0.9, ease: "power3.out" }, "<"); // opacity only: the hide-on-scroll class owns transform
@@ -308,7 +309,6 @@
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 },
     })
     .to(".hero__title", { yPercent: 18, opacity: 0.2, ease: "none" }, 0)
-    .to(".hero__plate", { rotate: 50, ease: "none" }, 0)
     .to(".hero__bg img", { yPercent: 10, scale: 1.16, ease: "none" }, 0)
     .to([".hero__sub", ".hero__meta", ".hero__scroll"], { opacity: 0, y: -30, ease: "none", duration: 0.5 }, 0);
 

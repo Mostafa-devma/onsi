@@ -173,7 +173,7 @@ ol, ul { list-style: none; }
   left: 0;
   right: 0;
   height: 50.5%;
-  background: var(--ink);
+  background: #e3d5c4; /* the logo's own beige */
 }
 .loader__panel--top { top: 0; }
 .loader__panel--bottom { bottom: 0; }
@@ -182,37 +182,38 @@ ol, ul { list-style: none; }
   text-align: center;
   color: var(--cream);
 }
-.loader__ar {
-  font-family: var(--f-ar);
-  font-size: clamp(72px, 16vw, 200px);
-  line-height: 1.5;
-  padding: 0 0.12em; /* room for the hamza and the tail of ي so they aren't clipped */
-  /* fills right → left, the way Arabic reads */
-  background: linear-gradient(270deg, var(--saffron) 0%, var(--tomato) 50%, rgba(243,234,216,0.12) 50%);
-  background-size: 200% 100%;
-  background-position: 0% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* The ONSI logo draws itself in as the page loads */
+.loader__logo { color: #9c4419; }
+.loader__mark { display: block; width: clamp(220px, 34vw, 340px); height: auto; margin: 0 auto; overflow: visible; }
+.loader__draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.loader__word {
+  font-family: "Fraunces", "Times New Roman", serif; /* the wordmark stays Latin in Arabic mode too */
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(40px, 6vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-top: clamp(18px, 2.6vw, 26px);
+  opacity: 0;
 }
 .loader__count {
-  font-family: var(--f-display);
-  font-size: 14px;
+  font-family: "Fraunces", serif;
+  font-size: 13px;
   letter-spacing: 0.3em;
-  margin-top: 8px;
-  color: var(--cream-dim);
+  margin-top: 22px;
+  color: rgba(156, 68, 25, 0.6);
 }
 .loader__line {
-  width: min(240px, 60vw);
+  width: min(200px, 50vw);
   height: 1px;
-  margin: 18px auto 0;
-  background: rgba(243, 234, 216, 0.15);
+  margin: 14px auto 0;
+  background: rgba(156, 68, 25, 0.18);
   overflow: hidden;
 }
 .loader__line span {
   display: block;
   height: 100%;
-  background: var(--cream);
+  background: #9c4419;
   transform-origin: 0 50%;
   transform: scaleX(0);
 }
@@ -418,63 +419,31 @@ ol, ul { list-style: none; }
 .hero__meta--l { left: var(--gutter); top: 26%; }
 .hero__meta--r { right: var(--gutter); text-align: right; top: 26%; }
 
+/* The ONSI logo: plate mark with the wave line, wordmark underneath */
 .hero__title {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1.2vw;
+  gap: clamp(14px, 2vw, 30px);
   font-family: var(--f-display);
-  font-weight: 300;
-  font-variation-settings: "SOFT" 100, "opsz" 144;
-  font-size: clamp(90px, 23vw, 420px);
-  line-height: 0.82;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(56px, 9vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
   color: var(--cream);
   position: relative;
   z-index: 2;
 }
-.hero__word { display: flex; will-change: transform; }
+.hero__mark {
+  display: block;
+  width: clamp(240px, 40vw, 600px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 4px 18px rgba(20, 17, 13, 0.7));
+}
+.hero__word { display: flex; text-shadow: 0 4px 30px rgba(20, 17, 13, 0.7); }
 .hero__word .ch { display: inline-block; will-change: transform; }
-.hero__word .ch--accent { font-style: italic; color: var(--saffron); }
-
-.hero__plate-wrap {
-  position: relative;
-  width: clamp(110px, 19vw, 340px);
-  aspect-ratio: 1;
-  flex-shrink: 0;
-  z-index: 3;
-}
-.hero__plate {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-  will-change: transform;
-}
-.hero__plate img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  transform: scale(1.08); /* hides the hairline at the circle's edge */
-}
-.hero__ring {
-  position: absolute;
-  inset: -22%;
-  width: 144%;
-  height: 144%;
-  animation: spin 22s linear infinite;
-  pointer-events: none;
-}
-.hero__ring text {
-  font-family: var(--f-body);
-  font-size: 9.6px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  fill: var(--cream-dim);
-}
-@keyframes spin { to { transform: rotate(360deg); } }
 
 .hero__sub {
   margin-top: clamp(28px, 4vw, 56px);
@@ -1713,9 +1682,8 @@ ol, ul { list-style: none; }
   .nav__cta { padding: 8px 14px; font-size: 12px; }
   .nav__en { display: none; }
   .hero__meta { display: none; }
-  .hero__title { gap: 2vw; font-size: 25vw; }
-  .hero__plate-wrap { width: 22vw; }
-  .hero__ring { display: none; }
+  .hero__title { font-size: 17vw; }
+  .hero__mark { width: 74vw; }
   .manifesto { border-radius: 24px 24px 0 0; }
   .menu__grid { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
   .mansaf__grid { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
@@ -1755,7 +1723,7 @@ ol, ul { list-style: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .mnav, .mnav__links a { transition: none !important; }
-  .grain, .hero__ring, .dot, .hero__scroll i { animation: none; }
+  .grain, .dot, .hero__scroll i { animation: none; }
   .manifesto__text .w { opacity: 1; }
   .daily__item { animation: none; }
 }
