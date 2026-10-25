@@ -96,7 +96,7 @@
     [".hero__meta--l span:nth-child(2)", "لبنان"],
     [".hero__meta--r span:nth-child(1)", "طلبات يومية"],
     [".hero__meta--r span:nth-child(2)", "من 10 صباحاً حتى 5 مساءً"],
-    [".hero__sub .line:nth-child(1) > span", "غداء بيتي، مطبوخ على مهل"],
+    [".hero__sub .line:nth-child(1) > span", "أكل بيتي، مطبوخ على مهل"],
     [".hero__sub .line:nth-child(2) > span", "ويوصل لباب بيتك — كل يوم عمل."],
     [".hero__scroll span", "مرّر للأسفل"],
     // manifesto
@@ -137,7 +137,7 @@
     ["#salads .carte__note", "كل سلطة مع 100 غرام دجاج أو لحم أو قريدس مشوي"],
     // how it works
     [".ritual .eyebrow", "كيف نعمل"],
-    [".ritual__title", "يوم في <em>حياة</em> غدائك"],
+    [".ritual__title", "يوم في <em>حياة</em> وجبتك"],
     [".js-clock-time", "اليوم · 8:00 صباحاً"],
     // meal plan
     [".plan__sticker", "جديد"],
