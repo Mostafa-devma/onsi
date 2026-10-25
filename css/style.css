@@ -89,6 +89,8 @@ ol, ul { list-style: none; }
 .btn--light:hover { background: var(--saffron); }
 .btn--ghost { border: 1px solid rgba(243, 234, 216, 0.35); color: var(--cream); }
 .btn--ghost:hover { border-color: var(--cream); background: rgba(243, 234, 216, 0.08); }
+.btn--icon { padding: 15px; }
+.btn--icon svg { display: block; }
 
 /* ---------- Grain / cursor / progress ---------- */
 .grain {
